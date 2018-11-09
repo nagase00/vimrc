@@ -11,32 +11,36 @@ if has('vim_starting')
     set runtimepath+=$VIM/.vim/bundle/neobundle.vim
 
     call neobundle#begin(expand('$VIM/.vim/bundle/'))
-      NeoBundleFetch 'Shougo/neobundle.vim'
+        NeoBundleFetch 'Shougo/neobundle.vim'
+ 
+        NeoBundle 'tomasr/molokai'
 
-      NeoBundle 'Shougo/unite.vim'
-      NeoBundle 'Shougo/vimfiler.vim'
+        NeoBundle 'Shougo/unite.vim'
+        NeoBundle 'Shougo/vimfiler.vim'
 
-      " make vimproc_win32.dll using WinGW & MSYS. 
-      " put it /.vim/bundle/vimproc.vim_dl-kaoriya-vim/lib.
-      NeoBundle 'Shougo/vimproc.vim', "dl-kaoriya-vim", {
-              \ 'build' : {
-              \     'windows' : 'tools\\update-dll-mingw',
-              \     'cygwin' : 'make -f make_cygwin.mak',
-              \     'mac' : 'make',
-              \     'linux' : 'make',
-              \     'unix' : 'gmake',
-              \    },
-              \ }
-      NeoBundle 'Shougo/vimshell.vim'
+        " make vimproc_win32.dll using WinGW & MSYS. 
+        " put it /.vim/bundle/vimproc.vim_dl-kaoriya-vim/lib.
+        NeoBundle 'Shougo/vimproc.vim', "dl-kaoriya-vim", {
+                \ 'build' : {
+                \     'windows' : 'tools\\update-dll-mingw',
+                \     'cygwin' : 'make -f make_cygwin.mak',
+                \     'mac' : 'make',
+                \     'linux' : 'make',
+                \     'unix' : 'gmake',
+                \    },
+                \ }
+        NeoBundle 'Shougo/vimshell.vim'
 
-      NeoBundle 'kannokanno/previm', '46-support-latest-open-browser'
-      NeoBundle 'tpope/vim-markdown'
-      NeoBundle 'tyru/open-browser.vim'
-      NeoBundle 'thinca/vim-quickrun'
+        " for markdown
+        NeoBundle 'kannokanno/previm', '46-support-latest-open-browser'
+        NeoBundle 'tpope/vim-markdown'
+        NeoBundle 'tyru/open-browser.vim'
+        NeoBundle 'thinca/vim-quickrun'
 
-      " plantuml.jarを/.vim/bundle/plantuml-syntaxにインストール
-      " plantumlというパス名の通ったところにpnaltuml.batを置く
-      NeoBundle "aklt/plantuml-syntax"
+        " plantuml.jarを/.vim/bundle/plantuml-syntaxにインストール
+        " plantumlというパス名の通ったところにpnaltuml.batを置く
+        NeoBundle 'aklt/plantuml-syntax'
+
     call neobundle#end()
 endif
 filetype plugin indent on
@@ -428,7 +432,11 @@ let g:vim_markdown_folding_disabled=1
 let g:previm_enable_realtime = 1
 "let g:previm_disable_vimproc = 1
 
+
 "---------------------------------------------------------------------------
+" plant UML
 "「:make」で実行
 " plantuml-syntax（スペースを含めないこと）
-let g:plantuml_executable_script = "C:\\plantUML\\plantuml.bat"
+let g:plantuml_executable_script = 'C:\\plantUML\\plantuml.bat'
+
+
